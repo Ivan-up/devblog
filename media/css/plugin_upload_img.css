@@ -1,0 +1,42 @@
+.upload-img{
+	max-width: 500px;
+}
+.upload-img__drop-files {
+	border: 2px dashed black;
+	min-height: 140px;
+	border-radius: 10px;
+	
+	padding: 10px;
+	margin-bottom: 20px;
+}
+.upload-img__drop-header{
+	padding: 30px;
+	font-size: 24px;
+	text-align: center;
+}
+.upload-img__form{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.upload-img__btn-files input[type="file"]{
+	display: inline-block;
+}
+.small {
+	font-size: 14px;
+}
+.upload-img__img-wrap{
+	
+}
+.upload-img__preview li {
+	width: 150px;
+	display: inline-block;
+	margin-bottom: 10px;
+}
+.upload-img__uploaded-files{
+	list-style: none;
+	padding: 0;
+}
+.upload-img__loading{
+	max-width: 400px;
+	margin: 0 auto;
+}

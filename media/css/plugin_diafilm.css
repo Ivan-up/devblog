@@ -1,0 +1,125 @@
+.diafilm{
+			max-width: 100%;
+			font-size: 0;
+			background-color: black;
+		}
+		
+		.diafilm__screen{
+			position: relative;
+			width: 100%;
+			overflow: hidden;
+			box-shadow:0 0 20px gold;
+			margin-bottom: 20px;
+		}
+		
+		.diafilm ul, .diafilm li{
+			padding: 0;
+			margin: 0;
+		}		
+		
+		.diafilm__item{
+			display: none;
+			position: absolute;
+			z-index: -1;
+		}		
+		.diafilm__item.active{
+			display: block;
+			z-index: 2;
+		}
+		
+		.diafilm__item img{
+			max-width: 100%;
+		}
+		
+		.diafilm__lenta{
+			position: relative;
+			padding: 2px 40px;
+			background: black;
+		}
+		
+		.diafilm__lenta-wrapper {
+			margin: 0 auto;
+			overflow: hidden;
+			position: relative;
+			background: black;
+			border-top: 10px dotted white;
+			border-bottom: 10px dotted white;
+		}
+		
+		.diafilm__lenta ul{
+			text-align: center;
+		
+		}
+		
+		.diafilm__mini-item{
+			display: inline-block;
+			width: 104px;
+			height: 65px;
+			text-align: center;
+			background: rgba(255,255,255,0.4);		
+			border: 2px solid #000;
+			overflow-x: hidden;
+		}
+		.diafilm__mini-item.active{
+			border-color: gold;
+		}
+		
+		.diafilm__mini-item > img{
+		 /*max-width: 100%;*/
+			max-height: 100%;
+		}
+		
+		.prevIcon{
+			border-color: transparent #fff transparent;
+			border-style: solid;
+			border-width: 10px 10px 10px 0;
+			display: block;
+		}
+		
+		.nextIcon{
+			border-color: transparent #fff transparent;
+			border-style: solid;
+			border-width: 10px 0 10px 10px;
+			display: block;
+		}
+		
+		.prev{
+			position: absolute;
+			left: 0;
+			z-index: 10;
+			background: rgba(0,0,0,0.5);			
+		}	
+		
+		.next{
+			position: absolute;
+			right: 0;
+			z-index: 10;
+			background: rgba(0,0,0,0.5);			
+		}
+		
+		
+		
+		.diafilm__lenta .prev,
+		.diafilm__lenta .next{
+			top: -1px;
+			padding: 35px 15px;
+		}	
+		
+		
+		.diafilm__screen .prev, 
+		.diafilm__screen .next{
+			
+			padding: 20px 15px 20px 15px;
+		}		
+		
+		.diafilm__slide-desc {
+			position: absolute;
+			width: 100%;
+			background: rgba(255,255,255,0.5);
+			min-height: 50px;
+			left:0;
+			bottom:0;
+			z-index: 3;
+			font-size: 20px;
+			text-align: center;
+		}

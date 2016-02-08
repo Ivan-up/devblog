@@ -1,0 +1,76 @@
+/*
+ * Globals
+ */
+
+.pull-down-menu li{
+	padding-left: 10px;
+	position: relative;
+}
+.pull-down-menu .active > a{
+	background : #337ab7;
+	color: #fff;
+}
+.pull-down-menu li > a {
+	display: block;
+	padding:  5px 0 5px 30px;
+}
+
+.pull-down-menu li > a:hover{
+	background : #eee;
+	color: #23527c;
+}
+
+.pull-down-menu li i{
+	position: absolute;
+	padding: 8px 0 0 8px;
+}
+
+.gallery-list > .row {
+	border-bottom: 1px solid #e3e3e3;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+}
+
+.gallery__item {
+	text-align: center;
+	padding-bottom: 10px;
+}
+.gallery__item a{
+	display: inline-block;
+}
+
+.desc-site
+{
+	list-style-type: none;
+	padding-left: 0
+}
+
+.desc-site ul {
+	padding-left: 10px;
+}
+.desc-site li{
+	list-style-type: none;			
+	position: relative;
+}
+.desc-site span{
+	display: block;
+	padding: 5px 0 5px 30px;
+}
+.desc-site .active > a{
+	background : #337ab7;
+	color: #fff;
+}
+.desc-site li > a {
+	display: block;
+	padding:  5px 0 5px 30px;
+}
+
+.desc-site li > a:hover{
+	background : #eee;
+	color: #23527c;
+}
+
+.desc-site li i{
+	position: absolute;
+	padding: 8px 0 0 8px;
+}

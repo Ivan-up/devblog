@@ -1,0 +1,67 @@
+# Disable magic quotes
+php_flag magic_quotes_gpc 0
+php_flag magic_quotes_runtime 0
+
+# php_value memory_limit - максимальный объём памяти в байтах, который разрешается использовать скрипту. 
+# php_value upload_max_filesize - максимальный размер закачиваемого файла. 
+# php_value post_max_size - максимальный допустимый размер POST-данных. 
+php_value post_max_size 60M
+php_value upload_max_filesize 50M
+
+Options All -Indexes
+
+php_flag short_open_tag on
+
+<IfModule mod_rewrite.c>
+	# Включаем mod_rewrite
+	RewriteEngine On 
+
+	# Указываем папку, в которой находится приложение.
+	# Используем /, если  приложение находится в корневой папке
+	RewriteBase /
+
+	# Allow any files or directories that exist to be displayed directly
+	# RewriteCond %{REQUEST_FILENAME} !-f
+	# RewriteCond %{REQUEST_FILENAME} !-d	
+	
+	# Переписываем адреса	
+	
+	# Для страниц сайта
+
+	# Если указан только контроллер
+	RewriteRule ^(page)/?$ index.php?c=$1 [L]
+	# Если указаны контроллер и один параметр(цифра)
+	RewriteRule ^(page)/(\d+)/?$ index.php?c=$1&param=$2 [L]
+	# Если указаны контроллер и действие
+	RewriteRule ^(page|auth)/([a-zA-Z][\w-]*)/?$ index.php?c=$1&action=$2 [L]
+	# Если указаны контроллер, действие и один параметр(цифра)
+	RewriteRule ^(page)/([a-zA-Z][\w-]*)/(\d+)/?$ index.php?c=$1&action=$2&param=$3 [L]	
+	# Для странцы с комментариями, если указаны контроллер, действие и два параметра(цифры)
+	RewriteRule ^(page)/(post)/(\d+)/(\d+)?$ index.php?c=$1&action=$2&param=$3&replay=$4 [L]
+	# Для странцы с комментариями, если указаны контроллер, действие и один параметр(дата)
+	RewriteRule ^(page)/(archive)/(20\d\d-[0]?[1-9]|20\d\d-[1][0-2])/?$ index.php?c=$1&action=$2&date=$3 [L]
+	# Для странцы с комментариями, если указаны контроллер, действие и два параметра( дата и цифра)
+	RewriteRule ^(page)/(archive)/(20\d\d-[0]?[1-9]|20\d\d-[1][0-2])/(\d+)/?$ index.php?c=$1&action=$2&date=$3&page=$4 [L]
+
+	# Админка
+
+	# Главная страница админка
+	RewriteRule ^(admin)/?$ index.php?c=$1 [L]
+	# Если указан только контроллер
+	RewriteRule ^admin/(posts|users|menu|templates|comments|gallery|video|audio|mailing|poll)/?$ index.php?c=$1 [L]
+	# Если указаны контроллер и один параметр(цифра)
+	RewriteRule ^admin/(posts|users|menu||comments|gallery|video|audio|mailing|poll)/(\d+)/?$ index.php?c=$1&param=$2 [L]
+	# Если указаны контроллер и действие
+	RewriteRule ^admin/(posts|users|menu|templates|comments|gallery|video|audio|mailing|poll)/([a-zA-Z][\w-]*)/?$ index.php?c=$1&action=$2 [L]	
+	# Если указаны контроллер, действие и один параметр(цифра)
+	RewriteRule ^admin/(posts|users|menu|comments|gallery|video|audio|mailing|poll)/([a-zA-Z][\w-]*)/(\d+)/?$ index.php?c=$1&action=$2&param=$3 [L]	
+	# Если указаны контроллер, действие и два параметра(цифры)
+	RewriteRule ^admin/(menu|gallery|mailing)/([a-zA-Z][\w-]*)/(\d+)/(\d+)/?$ index.php?c=$1&action=$2&param=$3&param2=$4 [L]
+	
+</IfModule>
+
+AddDefaultCharset UTF-8
+
+# Задает страницу по умолчанию для кода состояния 403, 404
+ErrorDocument 403 /index.php?c=page&action=404
+ErrorDocument 404 /index.php?c=page&action=404
